@@ -2,11 +2,23 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 var deckSize2 int
 
 func main() {
+
+	cards1 := newDeck()
+
+	cards1.saveToFile("myCards.txt")
+
+	cards1.newDeckFromFile("myCards.txt")
+
+	cards1.print()
+
+
+	os.Exit(0) ///////////////////////////////////////////////////////////////////////
 	
 	kards := newDeck()
 	//kards.print()
@@ -15,8 +27,6 @@ func main() {
 
 	hand.print()
 	remainingCards.print()
-
-	panic("sad"); ///////////////////////////////////////////////////////////////////////
 
 
 	/*
