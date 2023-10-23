@@ -17,17 +17,19 @@ func main() {
 
 	cards1.print()
 
+	cards1.shuffle()
+
+	cards1.print()
 
 	os.Exit(0) ///////////////////////////////////////////////////////////////////////
-	
+
 	kards := newDeck()
 	//kards.print()
 
-	hand, remainingCards := deal(kards,5)
+	hand, remainingCards := deal(kards, 5)
 
 	hand.print()
 	remainingCards.print()
-
 
 	/*
 	 * golang.org/pkg ==> built-in ve diger kutuphaneler
