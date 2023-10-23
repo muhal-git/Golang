@@ -2,25 +2,25 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"io/ioutil"
+	"math/rand"
 	"os"
+	"strings"
 )
 
 // create new type "deck"
 // which is slice of strings
 type deck []string
 
-
-func newDeck() deck{
+func newDeck() deck {
 	cards := deck{}
 
-	cardSuits := []string{"Spades","Diamonds","Hearts","Cubes"}
-	cardValues := []string{"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","J","Q","K","A"}
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Cubes"}
+	cardValues := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "J", "Q", "K", "A"}
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
-			cards = append(cards, suit + " of " + value)
+			cards = append(cards, suit+" of "+value)
 		}
 	}
 
@@ -36,30 +36,39 @@ func (d deck) print() {
 	}
 }
 
-func deal(d deck, handSize int) (deck,deck) {
-	
+func deal(d deck, handSize int) (deck, deck) {
+
 	return d[:handSize], d[handSize:]
 }
 
-func (d deck) toString() string{
+func (d deck) toString() string {
 
-	return strings.Join([]string(d),",")  
+	return strings.Join([]string(d), ",")
 }
 
-func (d deck) saveToFile(filename string) error{
-	
-	return ioutil.WriteFile(filename, []byte(d.toString()),0666)
+func (d deck) saveToFile(filename string) error {
+
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
 
-func (d deck) newDeckFromFile(filename string) deck{
+func (d deck) newDeckFromFile(filename string) deck {
 
 	bs, err := ioutil.ReadFile(filename)
 	if err != nil {
-		fmt.Println("Error: ",err)
+		fmt.Println("Error: ", err)
 		os.Exit(1)
 	}
 
-	s := strings.Split(string(bs),",")
+	s := strings.Split(string(bs), ",")
 
 	return deck(s)
+}
+
+func (d deck) shuffle() {
+
+	for i := range d {
+		newPosition := rand.Intn(len(d))
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+
 }
