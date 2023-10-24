@@ -27,6 +27,21 @@ func newDeck() deck {
 	return cards
 }
 
+func newDeck2() deck {
+	cards := deck{}
+
+	cardSuits := []string{"Spades"}
+	cardValues := []string{"J", "Q", "K", "A"}
+
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, suit+" of "+value)
+		}
+	}
+
+	return cards
+}
+
 // Buradaki d this ve self gibi dusunulebilir
 // d receiver olarak adlandirilir
 func (d deck) print() {
@@ -37,6 +52,16 @@ func (d deck) print() {
 }
 
 func deal(d deck, handSize int) (deck, deck) {
+
+	return d[:handSize], d[handSize:]
+}
+
+/*
+Asagidaki gibi degil de yukaridaki gibi yazmak daha dogru olacaktir.
+Asagidaki gibi yazilirsa sanki deck uzerinde islem yapiliyor oldugu
+anlasilabilir fakat oyle yapilmamaktadir!
+*/
+func (d deck) deal2(handSize int) (deck, deck) {
 
 	return d[:handSize], d[handSize:]
 }

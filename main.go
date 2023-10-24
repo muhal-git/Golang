@@ -9,7 +9,11 @@ var deckSize2 int
 
 func main() {
 
-	cards1 := newDeck()
+	cards1 := newDeck2()
+	fmt.Println(cards1)
+	fmt.Println(cards1.deal2(1))
+	fmt.Println(cards1)
+	os.Exit(0) ///////////////////////////////////////////////////////////////////////
 
 	cards1.saveToFile("myCards.txt")
 
@@ -20,8 +24,6 @@ func main() {
 	cards1.shuffle()
 
 	cards1.print()
-
-	os.Exit(0) ///////////////////////////////////////////////////////////////////////
 
 	kards := newDeck()
 	//kards.print()
