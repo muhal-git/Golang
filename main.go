@@ -45,8 +45,8 @@ func main() {
 	card = "Ace of Hearts"
 
 	fmt.Println(card)
-	var deckSize1 int
-	deckSize1 = 52
+	//var deckSize1 int
+	var deckSize1 = 52
 	fmt.Println(deckSize1)
 	fmt.Println(deckSize2)
 
