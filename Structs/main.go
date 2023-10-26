@@ -63,13 +63,16 @@ func main() {
 }
 
 func (p person) print() {
+
 	fmt.Printf("\n%+v\n", p)
 }
 
 func (p person) updateName1(newFirstName string) {
+
 	p.firstName = newFirstName
 }
 
 func (pointerToPerson *person) updateName2(newFirstName string) {
+
 	(*pointerToPerson).firstName = newFirstName
 }
