@@ -48,6 +48,20 @@ func TestFirstAndLastCards(t *testing.T) {
 	}
 }
 
+func SetupTestCase(t *testing.T) func(t *testing.T) {
+	t.Log("setup test case")
+	return func(t *testing.T) {
+		t.Log("teardown test case")
+	}
+}
+
+func SetupSubTest(t *testing.T) func(t *testing.T) {
+	t.Log("setup sub test")
+	return func(t *testing.T) {
+		t.Log("teardown sub test")
+	}
+}
+
 func TestSaveToDeckAndNewDeskFromFile(t *testing.T) {
 	os.Remove("_decktesting")
 
