@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-)
+)gfg
 
 type contactInfo struct {
 	email   string
