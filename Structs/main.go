@@ -55,10 +55,28 @@ func main() {
 	// following will not update jim
 	jim.updateName1("jimmy")
 	jim.print()
-	// instead we use pointers
+
+	// instead we use pointers to update something
+	/*
+		Turn value into address with &value
+		Turn address into value with *address
+	*/
 	jimPointer := &jim
 	jimPointer.updateName2("jimmy")
 	jim.print()
+
+	/*
+		instead of saying jimPointer := &jim and then jimPointer.updateName2("jimmy")
+		wen can simply say jim.updateName2("jimmy"). This will also update the name
+	*/
+
+	/*
+		In GO everything is passed by value.
+		When we use Value Types we need to use pointers to update variables inside the functions,
+		but when we use Reference Types we dont need to worry about pointers.
+
+		slices, maps, channels, pointers, functions are Reference types.
+	*/
 
 }
 
